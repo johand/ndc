@@ -1,1 +1,4 @@
 * The complete node.js developer course
+
+- Notes app
+  - File system and command line args
