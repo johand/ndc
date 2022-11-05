@@ -2,3 +2,5 @@
 
 - Notes app
   - File system and command line args
+- Weather app
+  - Asynchronous node.js
