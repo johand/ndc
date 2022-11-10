@@ -5,13 +5,13 @@ const geocode = (address, callback) => {
     address,
   )}&limit=1`;
 
-  request({ url: url, json: true }, (error, res) => {
+  request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback('Unable to connect to location service!', undefined);
-    } else if (res.body.error) {
+    } else if (body.error) {
       callback('Unable to find location. Try another search.', undefined);
     } else {
-      const { label, longitude, latitude } = res.body.data[0];
+      const { label, longitude, latitude } = body.data[0];
 
       callback(undefined, {
         latitude: latitude,
