@@ -6,3 +6,4 @@
   - Asynchronous node.js
   - Web servers
   - Accessing API from browser
+  - Application deployment
