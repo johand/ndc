@@ -4,44 +4,56 @@ const connectionURL = 'mongodb://127.0.0.1:27017';
 const client = new MongoClient(connectionURL);
 const databaseName = 'task-manager';
 
-const id = new ObjectId();
-console.log(id.id.length);
-console.log(id.toHexString().length);
-
 const main = async () => {
   await client.connect();
   const db = client.db(databaseName);
 
   // try {
-  //   await db
+  //   const result = await db
   //     .collection('users')
-  //     .insertOne({ name: 'Vikram', age: 26 });
-  // } catch (error) {
-  //   return console.log('Unable to insert user');
+  //     .findOne({ _id: ObjectId('63780313c9a90d2f98369fef') });
+  //
+  //   console.log(result);
+  // } catch (err) {
+  //   return console.log(err);
   // }
 
   // try {
-  //   const result = await db.collection('users').insertMany([
-  //     { Name: 'Bar', age: 25 },
-  //     { Name: 'Biz', age: 27 },
-  //   ]);
+  //   const result = await db.collection('users').find({ age: 50 }).toArray();
   //
   //   console.log(result);
-  // } catch (error) {
-  //   return console.log('Unable to insert documents!');
+  // } catch (err) {
+  //   return console.log(err);
+  // }
+  //
+  // try {
+  //   const result = await db.collection('users').countDocuments();
+  //
+  //   console.log(result);
+  // } catch (err) {
+  //   return console.log(err);
   // }
 
-  // try {
-  //   const result = await db.collection('tasks').insertMany([
-  //     { description: 'qwerty', completed: true },
-  //     { description: 'zxcvbn', completed: false },
-  //     { description: 'hjkl', completed: true },
-  //   ]);
-  //
-  //   console.log(result);
-  // } catch (error) {
-  //   return console.log(error);
-  // }
+  try {
+    const result = await db
+      .collection('tasks')
+      .findOne({ _id: ObjectId('6376f4742a3510e589184d56') });
+
+    console.log(result);
+  } catch (err) {
+    return console.log(err);
+  }
+
+  try {
+    const result = await db
+      .collection('tasks')
+      .find({ completed: false })
+      .toArray();
+
+    console.log(result);
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
 main();
