@@ -7,3 +7,5 @@
   - Web servers
   - Accessing API from browser
   - Application deployment
+- Task app
+  - MongoDB and promises
