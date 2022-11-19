@@ -47,10 +47,18 @@ const main = async () => {
   //   return console.log(err);
   // }
 
+  // try {
+  //   const result = await db.collection('users').deleteMany({ age: 27 });
+  //
+  //   console.log(result);
+  // } catch (err) {
+  //   return console.log(err);
+  // }
+
   try {
     const result = await db
       .collection('tasks')
-      .updateMany({ completed: false }, { $set: { completed: true } });
+      .deleteOne({ description: 'fdsa' });
 
     console.log(result);
   } catch (err) {
