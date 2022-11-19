@@ -34,21 +34,23 @@ const main = async () => {
   //   return console.log(err);
   // }
 
+  // try {
+  //   const result = await db
+  //     .collection('users')
+  //     .updateOne(
+  //       { _id: ObjectId('63780fef06b9a8417271212a') },
+  //       { $inc: { age: 1 } },
+  //     );
+  //
+  //   console.log(result);
+  // } catch (err) {
+  //   return console.log(err);
+  // }
+
   try {
     const result = await db
       .collection('tasks')
-      .findOne({ _id: ObjectId('6376f4742a3510e589184d56') });
-
-    console.log(result);
-  } catch (err) {
-    return console.log(err);
-  }
-
-  try {
-    const result = await db
-      .collection('tasks')
-      .find({ completed: false })
-      .toArray();
+      .updateMany({ completed: false }, { $set: { completed: true } });
 
     console.log(result);
   } catch (err) {
