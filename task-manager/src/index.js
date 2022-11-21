@@ -17,6 +17,22 @@ app.post('/users', (req, res) => {
     .catch(err => res.status(400).send(err));
 });
 
+app.get('/users', (_req, res) => {
+  User.find({})
+    .then(users => res.send(users))
+    .catch(err => res.status(400).send(err));
+});
+
+app.get('/users/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      if (!user) return res.send(404).send();
+
+      res.send(user);
+    })
+    .catch(_err => res.status(500).send());
+});
+
 app.post('/tasks', (req, res) => {
   const task = new Task(req.body);
 
