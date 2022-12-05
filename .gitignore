@@ -6,3 +6,7 @@ fly.toml
 *~
 *#
 .\#*
+
+# Folders
+*/avatars/*
+*/images/*
