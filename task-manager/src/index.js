@@ -3,12 +3,22 @@ require('./db/mongoose');
 const userRouter = require('./routers/user');
 const taskRouter = require('./routers/task');
 const multer = require('multer');
-const upload = multer({ dest: 'images' });
+const upload = multer({
+  dest: 'images',
+  limits: { fileSize: 1000000 },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(doc|docx)$/)) {
+      return cb(new Error('Please upload a Word Document'));
+    }
+
+    cb(undefined, true);
+  },
+});
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use('/upload', upload.single('upload'), (_req, res) => {
+app.post('/upload', upload.single('upload'), (_req, res) => {
   res.send();
 });
 
