@@ -18,9 +18,16 @@ const upload = multer({
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.post('/upload', upload.single('upload'), (_req, res) => {
-  res.send();
-});
+app.post(
+  '/upload',
+  upload.single('upload'),
+  (_req, res) => {
+    res.send();
+  },
+  (err, _req, res, _next) => {
+    res.status(400).send({ error: err.message });
+  },
+);
 
 app.use(express.json());
 app.use(userRouter);

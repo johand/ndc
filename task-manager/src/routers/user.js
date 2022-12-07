@@ -93,9 +93,16 @@ const upload = multer({
   },
 });
 
-router.post('/users/me/avatar', upload.single('avatar'), (_req, res) => {
-  res.send();
-});
+router.post(
+  '/users/me/avatar',
+  upload.single('avatar'),
+  (_req, res) => {
+    res.send();
+  },
+  (err, _req, res, _next) => {
+    res.status(400).send({ error: err.message });
+  },
+);
 
 router.delete('/users/me', auth, async (req, res) => {
   try {
