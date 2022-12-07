@@ -117,6 +117,21 @@ router.delete(
   },
 );
 
+router.get('/users/:id/avatar', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user?.avatar) {
+      throw new Error();
+    }
+
+    res.set('Content-Type', 'image/jpg');
+    res.send(user.avatar);
+  } catch (err) {
+    res.status(400).send();
+  }
+});
+
 router.delete('/users/me', auth, async (req, res) => {
   try {
     await req.user.remove();
