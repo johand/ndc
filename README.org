@@ -12,3 +12,4 @@
   - REST apis and mongoose
   - API authentication and security
   - Sorting, pagination, and filtering
+  - File uploads
