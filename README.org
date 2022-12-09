@@ -13,3 +13,4 @@
   - API authentication and security
   - Sorting, pagination, and filtering
   - File uploads
+  - Sending emails
