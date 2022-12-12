@@ -10,3 +10,7 @@ fly.toml
 # Folders
 */avatars/*
 */images/*
+
+# Env files
+dev.env
+prod.env
