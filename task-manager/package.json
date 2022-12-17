@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r dotenv/config src/index.js dotenv_config_path=./config/prod.env",
     "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=./config/dev.env",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
