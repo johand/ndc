@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r dotenv/config src/index.js dotenv_config_path=./config/prod.env",
     "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=./config/dev.env",
-    "test": "jest --watchAll"
+    "test": "DOTENV_CONFIG_PATH=./config/test.env jest --setupFiles dotenv/config --watchAll"
   },
   "jest": {
     "testEnvironment": "node"
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "jest": "^29.3.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
   }
 }
