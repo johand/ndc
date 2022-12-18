@@ -8,6 +8,9 @@
     "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=./config/dev.env",
     "test": "jest --watchAll"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
