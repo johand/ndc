@@ -14,3 +14,4 @@ fly.toml
 # Env files
 dev.env
 prod.env
+test.env

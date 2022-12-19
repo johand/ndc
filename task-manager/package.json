@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config src/index.js dotenv_config_path=./config/prod.env",
-    "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=./config/dev.env"
+    "dev": "nodemon -r dotenv/config src/index.js dotenv_config_path=./config/dev.env",
+    "test": "DOTENV_CONFIG_PATH=./config/test.env jest --setupFiles dotenv/config --watch --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +23,12 @@
     "mongodb": "^4.12.0",
     "mongoose": "^6.7.2",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^2.0.20",
     "sharp": "^0.31.2",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
   }
 }
