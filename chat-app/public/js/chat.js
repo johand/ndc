@@ -20,6 +20,7 @@ socket.on('message', msg => {
   console.log(msg);
 
   const html = Mustache.render(messageTemplate, {
+    username: msg.username,
     message: msg.text,
     createdAt: moment(msg.createdAt).format('h:mm a'),
   });
@@ -31,6 +32,7 @@ socket.on('locationMessage', msg => {
   console.log(msg);
 
   const html = Mustache.render(locationTemplate, {
+    username: msg.username,
     url: msg.url,
     createdAt: moment(msg.createdAt).format('h:mm a'),
   });
