@@ -17,7 +17,7 @@ const addUser = ({ id, username, room }) => {
 
   // Validate username
   if (existingUser) {
-    return { error: 'Username is in user!' };
+    return { error: 'Username is in use!' };
   }
 
   // Store user
