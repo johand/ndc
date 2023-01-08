@@ -15,3 +15,5 @@
   - File uploads
   - Sending emails
   - Testing node.js
+- Chat app
+  - Real-time web applications with socket.io
